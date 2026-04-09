@@ -150,7 +150,7 @@ export default function IndustryDetail() {
               {industry.description}
             </p>
             <Link
-              to="/contact"
+              to="/start-trial"
               className="mt-8 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90 group"
               style={{ background: 'linear-gradient(135deg, #3FAF97 0%, #1F5F4F 100%)' }}
             >
@@ -172,68 +172,33 @@ export default function IndustryDetail() {
           >
             Trusted by customers nationwide
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-between"
-          >
+          {/* Desktop */}
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="hidden md:flex items-center justify-between">
             <div className="flex items-center gap-2.5 select-none h-10">
-              <svg width="28" height="28" viewBox="0 0 18 18" fill="none" className="shrink-0">
-                <rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" />
-                <circle cx="9" cy="9" r="3" fill="#c0392b" />
-              </svg>
-              <div className="flex flex-col leading-none">
-                <span className="text-[22px] font-bold text-black tracking-tight">Summit</span>
-                <span className="text-[11px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 18 18" fill="none" className="shrink-0"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" /><circle cx="9" cy="9" r="3" fill="#c0392b" /></svg>
+              <div className="flex flex-col leading-none"><span className="text-[22px] font-bold text-black tracking-tight">Summit</span><span className="text-[11px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span></div>
             </div>
-
             <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-extrabold tracking-[0.06em] text-black uppercase">
-                CLEARVIEW
-              </span>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="14" height="16" rx="1" stroke="black" strokeWidth="1.8" fill="none" />
-                <line x1="10" y1="4" x2="10" y2="20" stroke="black" strokeWidth="1.2" />
-                <line x1="3" y1="12" x2="17" y2="12" stroke="black" strokeWidth="1.2" />
-                <path d="M2 20L18 20" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                <path d="M20 3L20 7" stroke="black" strokeWidth="1.5" strokeLinecap="round" />
-                <path d="M18 5L22 5" stroke="black" strokeWidth="1.5" strokeLinecap="round" />
-                <path d="M19 10L19 12" stroke="black" strokeWidth="1" strokeLinecap="round" />
-                <path d="M18 11L20 11" stroke="black" strokeWidth="1" strokeLinecap="round" />
-                <circle cx="22" cy="8" r="0.7" fill="black" />
-              </svg>
+              <span className="text-[26px] font-extrabold tracking-[0.06em] text-black uppercase">CLEARVIEW</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="14" height="16" rx="1" stroke="black" strokeWidth="1.8" fill="none" /><line x1="10" y1="4" x2="10" y2="20" stroke="black" strokeWidth="1.2" /><line x1="3" y1="12" x2="17" y2="12" stroke="black" strokeWidth="1.2" /><path d="M2 20L18 20" stroke="black" strokeWidth="2" strokeLinecap="round" /><path d="M20 3L20 7" stroke="black" strokeWidth="1.5" strokeLinecap="round" /><path d="M18 5L22 5" stroke="black" strokeWidth="1.5" strokeLinecap="round" /><path d="M19 10L19 12" stroke="black" strokeWidth="1" strokeLinecap="round" /><path d="M18 11L20 11" stroke="black" strokeWidth="1" strokeLinecap="round" /><circle cx="22" cy="8" r="0.7" fill="black" /></svg>
             </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-light tracking-[0.12em] text-black border-2 border-black rounded-lg px-2.5 py-0.5">
-                NTG
-              </span>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-light tracking-[0.12em] text-black border-2 border-black rounded-lg px-2.5 py-0.5">NTG</span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] text-black"><span className="font-extrabold">APEX</span><span className="font-normal">SUPPLY</span></span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><img src="/vision-lavage.png" alt="Vision Lavage" className="h-8 w-auto" /></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-black tracking-tight text-black italic">Bright<span className="text-[#2563eb]">Wash</span></span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-bold tracking-[0.15em] text-black uppercase">PRO<span className="font-light">SHINE</span></span></div>
+          </motion.div>
+          {/* Mobile */}
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="md:hidden grid grid-cols-3 gap-x-4 gap-y-6 justify-items-center">
+            <div className="flex items-center gap-2 select-none h-10">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" className="shrink-0"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" /><circle cx="9" cy="9" r="3" fill="#c0392b" /></svg>
+              <div className="flex flex-col leading-none"><span className="text-[14px] font-bold text-black tracking-tight">Summit</span><span className="text-[8px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span></div>
             </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] text-black">
-                <span className="font-extrabold">APEX</span>
-                <span className="font-normal">SUPPLY</span>
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <img src="/vision-lavage.png" alt="Vision Lavage" className="h-8 w-auto" />
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-black tracking-tight text-black italic">
-                Bright<span className="text-[#2563eb]">Wash</span>
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-bold tracking-[0.15em] text-black uppercase">
-                PRO<span className="font-light">SHINE</span>
-              </span>
-            </div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-light tracking-[0.12em] text-black border-2 border-black rounded-md px-1.5 py-0.5">NTG</span></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] text-black"><span className="font-extrabold">APEX</span><span className="font-normal">SUPPLY</span></span></div>
+            <div className="flex items-center gap-2 select-none h-10"><img src="/vision-lavage.png" alt="Vision Lavage" className="h-5 w-auto" /></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-black tracking-tight text-black italic">Bright<span className="text-[#2563eb]">Wash</span></span></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-bold tracking-[0.15em] text-black uppercase">PRO<span className="font-light">SHINE</span></span></div>
           </motion.div>
         </div>
       </section>
@@ -255,22 +220,37 @@ export default function IndustryDetail() {
             </div>
           </motion.div>
 
-          {/* 3 phones right */}
+          {/* 3 phones — desktop: row, mobile: staggered zigzag */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex-1 flex items-end justify-center gap-4 md:gap-6"
+            className="flex-1"
           >
-            <div className="w-[130px] md:w-[185px] lg:w-[210px]">
-              <PhoneMockup />
+            {/* Desktop */}
+            <div className="hidden md:flex items-end justify-center gap-6">
+              <div className="w-[160px] lg:w-[185px]">
+                <PhoneMockup />
+              </div>
+              <div className="w-[160px] lg:w-[185px] -mb-8">
+                <PhoneMockup />
+              </div>
+              <div className="w-[160px] lg:w-[185px]">
+                <PhoneMockup />
+              </div>
             </div>
-            <div className="w-[130px] md:w-[185px] lg:w-[210px] -mb-8">
-              <PhoneMockup />
-            </div>
-            <div className="w-[130px] md:w-[185px] lg:w-[210px]">
-              <PhoneMockup />
+            {/* Mobile — staggered zigzag with overlap */}
+            <div className="md:hidden relative mx-auto" style={{ height: '900px', width: '340px' }}>
+              <div className="absolute left-0 top-0 w-[185px] z-10">
+                <PhoneMockup />
+              </div>
+              <div className="absolute right-0 top-[280px] w-[185px] z-20">
+                <PhoneMockup />
+              </div>
+              <div className="absolute left-0 top-[560px] w-[185px] z-30">
+                <PhoneMockup />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -293,7 +273,7 @@ function PhoneMockup() {
             <div className="w-20 md:w-24 h-[18px] md:h-[22px] bg-[#1c1c1c] rounded-full" />
           </div>
           <div className="bg-white">
-            <div className="aspect-[9/17] p-3 md:p-4 relative">
+            <div className="aspect-[9/17] p-3 md:p-4 relative overflow-hidden">
               <div className="flex items-center justify-between mb-3">
                 <div className="text-[8px] md:text-[9px] font-semibold text-[#1a1a1a]">9:41</div>
                 <div className="flex gap-1">

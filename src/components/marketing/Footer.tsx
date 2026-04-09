@@ -44,7 +44,7 @@ export default function Footer() {
             See Lume in action
           </h2>
 
-          <div className="flex flex-col md:flex-row gap-10 items-start">
+          <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
             {/* Form in white box */}
             <div className="flex-1 bg-white p-8">
               <form
@@ -106,8 +106,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Lume. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-text-tertiary">
-            <span>Privacy</span>
-            <span>Terms</span>
+            <Link to="/privacy" className="hover:text-text-primary transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-text-primary transition-colors">Terms</Link>
+            <Link to="/refund-policy" className="hover:text-text-primary transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>

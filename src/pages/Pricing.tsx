@@ -63,8 +63,8 @@ const FAQS = [
   { q: 'Is there a commitment?', a: 'Monthly plans have no commitment — cancel anytime. Annual plans are a one-year commitment, billed upfront at a 15% discount.' },
   { q: 'Can I switch plans?', a: 'Yes. You can upgrade or downgrade at any time. Changes take effect on the next billing cycle.' },
   { q: 'Is there a free trial?', a: 'Yes! Every plan comes with a 14-day free trial. No credit card required.' },
-  { q: 'How does billing work?', a: 'Billing is monthly by credit card. You receive a detailed invoice each month.' },
-  { q: 'Is onboarding included?', a: 'Yes. All plans include guided onboarding. AutoPilot includes dedicated onboarding with a specialist.' },
+  { q: 'How does billing work?', a: 'Monthly plans are billed each month by credit card. Annual plans are billed once upfront for the full year. You receive a detailed invoice with every payment.' },
+  { q: 'Is onboarding included?', a: 'Yes. All plans include guided onboarding to help you get started. The AutoPilot plan includes a dedicated onboarding session with a specialist.' },
 ];
 
 export default function Pricing() {
@@ -198,7 +198,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <div className="mt-8">
                   <Link
-                    to="/contact"
+                    to="/start-trial"
                     className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
                       plan.featured
                         ? 'bg-[#1F5F4F] text-white hover:bg-[#174a3d]'
@@ -226,68 +226,33 @@ export default function Pricing() {
           >
             Trusted by customers nationwide
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-between"
-          >
+          {/* Desktop */}
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="hidden md:flex items-center justify-between">
             <div className="flex items-center gap-2.5 select-none h-10">
-              <svg width="28" height="28" viewBox="0 0 18 18" fill="none" className="shrink-0">
-                <rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" />
-                <circle cx="9" cy="9" r="3" fill="#c0392b" />
-              </svg>
-              <div className="flex flex-col leading-none">
-                <span className="text-[22px] font-bold text-black tracking-tight">Summit</span>
-                <span className="text-[11px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 18 18" fill="none" className="shrink-0"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" /><circle cx="9" cy="9" r="3" fill="#c0392b" /></svg>
+              <div className="flex flex-col leading-none"><span className="text-[22px] font-bold text-black tracking-tight">Summit</span><span className="text-[11px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span></div>
             </div>
-
             <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-extrabold tracking-[0.06em] text-black uppercase">
-                CLEARVIEW
-              </span>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="14" height="16" rx="1" stroke="black" strokeWidth="1.8" fill="none" />
-                <line x1="10" y1="4" x2="10" y2="20" stroke="black" strokeWidth="1.2" />
-                <line x1="3" y1="12" x2="17" y2="12" stroke="black" strokeWidth="1.2" />
-                <path d="M2 20L18 20" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                <path d="M20 3L20 7" stroke="black" strokeWidth="1.5" strokeLinecap="round" />
-                <path d="M18 5L22 5" stroke="black" strokeWidth="1.5" strokeLinecap="round" />
-                <path d="M19 10L19 12" stroke="black" strokeWidth="1" strokeLinecap="round" />
-                <path d="M18 11L20 11" stroke="black" strokeWidth="1" strokeLinecap="round" />
-                <circle cx="22" cy="8" r="0.7" fill="black" />
-              </svg>
+              <span className="text-[26px] font-extrabold tracking-[0.06em] text-black uppercase">CLEARVIEW</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="14" height="16" rx="1" stroke="black" strokeWidth="1.8" fill="none" /><line x1="10" y1="4" x2="10" y2="20" stroke="black" strokeWidth="1.2" /><line x1="3" y1="12" x2="17" y2="12" stroke="black" strokeWidth="1.2" /><path d="M2 20L18 20" stroke="black" strokeWidth="2" strokeLinecap="round" /><path d="M20 3L20 7" stroke="black" strokeWidth="1.5" strokeLinecap="round" /><path d="M18 5L22 5" stroke="black" strokeWidth="1.5" strokeLinecap="round" /><path d="M19 10L19 12" stroke="black" strokeWidth="1" strokeLinecap="round" /><path d="M18 11L20 11" stroke="black" strokeWidth="1" strokeLinecap="round" /><circle cx="22" cy="8" r="0.7" fill="black" /></svg>
             </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-light tracking-[0.12em] text-black border-2 border-black rounded-lg px-2.5 py-0.5">
-                NTG
-              </span>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-light tracking-[0.12em] text-black border-2 border-black rounded-lg px-2.5 py-0.5">NTG</span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] text-black"><span className="font-extrabold">APEX</span><span className="font-normal">SUPPLY</span></span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><img src="/vision-lavage.png" alt="Vision Lavage" className="h-8 w-auto" /></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-black tracking-tight text-black italic">Bright<span className="text-[#2563eb]">Wash</span></span></div>
+            <div className="flex items-center gap-2.5 select-none h-10"><span className="text-[26px] font-bold tracking-[0.15em] text-black uppercase">PRO<span className="font-light">SHINE</span></span></div>
+          </motion.div>
+          {/* Mobile */}
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="md:hidden grid grid-cols-3 gap-x-4 gap-y-6 justify-items-center">
+            <div className="flex items-center gap-2 select-none h-10">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" className="shrink-0"><rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" /><circle cx="9" cy="9" r="3" fill="#c0392b" /></svg>
+              <div className="flex flex-col leading-none"><span className="text-[14px] font-bold text-black tracking-tight">Summit</span><span className="text-[8px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span></div>
             </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] text-black">
-                <span className="font-extrabold">APEX</span>
-                <span className="font-normal">SUPPLY</span>
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <img src="/vision-lavage.png" alt="Vision Lavage" className="h-8 w-auto" />
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-black tracking-tight text-black italic">
-                Bright<span className="text-[#2563eb]">Wash</span>
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2.5 select-none h-10">
-              <span className="text-[26px] font-bold tracking-[0.15em] text-black uppercase">
-                PRO<span className="font-light">SHINE</span>
-              </span>
-            </div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-light tracking-[0.12em] text-black border-2 border-black rounded-md px-1.5 py-0.5">NTG</span></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] text-black"><span className="font-extrabold">APEX</span><span className="font-normal">SUPPLY</span></span></div>
+            <div className="flex items-center gap-2 select-none h-10"><img src="/vision-lavage.png" alt="Vision Lavage" className="h-5 w-auto" /></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-black tracking-tight text-black italic">Bright<span className="text-[#2563eb]">Wash</span></span></div>
+            <div className="flex items-center gap-2 select-none h-10"><span className="text-[16px] font-bold tracking-[0.15em] text-black uppercase">PRO<span className="font-light">SHINE</span></span></div>
           </motion.div>
         </div>
       </section>

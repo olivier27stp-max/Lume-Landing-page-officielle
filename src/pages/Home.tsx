@@ -41,14 +41,14 @@ function Hero() {
             className="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3"
           >
             <Link
-              to="/contact"
+              to="/start-trial"
               className="inline-flex items-center gap-2 bg-text-primary text-surface px-7 py-3.5 rounded-xl text-sm font-bold hover:opacity-85 transition-opacity group"
             >
               Book a demo
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
-              to="/contact"
+              to="/start-trial"
               className="inline-flex items-center gap-2 bg-[#3FAF97] text-white px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-[#1F5F4F] transition-colors"
             >
               Free trial
@@ -152,8 +152,8 @@ function Hero() {
 
         </div>
 
-        {/* Phone — overlapping right side */}
-        <div className="absolute -right-10 md:-right-16 lg:-right-14 bottom-0 md:-bottom-10 z-20 w-[130px] md:w-[185px] lg:w-[210px] scale-[0.7] origin-bottom-right">
+        {/* Phone — overlapping right side (desktop only) */}
+        <div className="hidden md:block absolute -right-10 md:-right-16 lg:-right-14 bottom-0 md:-bottom-10 z-20 w-[185px] lg:w-[210px] scale-[0.7] origin-bottom-right">
           <div className="relative rounded-[1.75rem] md:rounded-[2.25rem] bg-[#1c1c1c] p-[3px] md:p-1"
                style={{ boxShadow: '2px 6px 12px rgba(0,0,0,0.12), 4px 12px 30px rgba(0,0,0,0.08)' }}>
             {/* Side buttons */}
@@ -232,15 +232,87 @@ function Hero() {
           </div>
         </div>
       </motion.div>
+
+      {/* Phone — mobile only, below monitor */}
+      <div className="md:hidden flex justify-center mt-8">
+        <div className="w-[185px]">
+          <div className="relative rounded-[2.25rem] bg-[#1c1c1c] p-1" style={{ boxShadow: '2px 6px 12px rgba(0,0,0,0.12), 4px 12px 30px rgba(0,0,0,0.08)' }}>
+            <div className="absolute -right-[2px] top-[20%] w-[2px] h-8 bg-[#2a2a2a] rounded-r" />
+            <div className="absolute -left-[2px] top-[18%] w-[2px] h-5 bg-[#2a2a2a] rounded-l" />
+            <div className="absolute -left-[2px] top-[28%] w-[2px] h-10 bg-[#2a2a2a] rounded-l" />
+            <div className="absolute -left-[2px] top-[40%] w-[2px] h-10 bg-[#2a2a2a] rounded-l" />
+            <div className="rounded-[2rem] overflow-hidden border border-[#3a3a3a]">
+              <div className="flex items-center justify-center py-2.5 bg-white">
+                <div className="w-24 h-[22px] bg-[#1c1c1c] rounded-full" />
+              </div>
+              <div className="bg-white">
+                <div className="aspect-[9/17] p-4 relative">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-[9px] font-semibold text-[#1a1a1a]">9:41</div>
+                    <div className="flex gap-1">
+                      <div className="w-3 h-2 bg-[#1a1a1a] rounded-sm" />
+                      <div className="w-2.5 h-2 bg-[#1a1a1a] rounded-sm" />
+                      <div className="w-4 h-2 bg-[#1a1a1a] rounded-sm" />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-xs font-bold text-[#1a1a1a]">Dashboard</div>
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary/30" />
+                    </div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#f7f7f7] border border-[#eaeaea] mb-3">
+                    <div className="text-[8px] text-[#999] uppercase tracking-wide font-medium">Today</div>
+                    <div className="text-base font-bold text-[#1a1a1a] mt-1">3 Jobs</div>
+                    <div className="mt-2 h-1.5 bg-[#e5e5e5] rounded-full overflow-hidden">
+                      <div className="h-full bg-primary rounded-full w-2/3" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      { time: '9:00 AM', name: 'J. Smith', addr: '142 Oak St', color: 'bg-emerald-50 border-emerald-100' },
+                      { time: '11:30 AM', name: 'M. Johnson', addr: '88 Pine Ave', color: 'bg-blue-50 border-blue-100' },
+                      { time: '2:00 PM', name: 'R. Davis', addr: '205 Maple Dr', color: 'bg-amber-50 border-amber-100' },
+                    ].map((item, i) => (
+                      <div key={i} className={`p-2.5 rounded-lg border ${item.color}`}>
+                        <div className="flex items-center justify-between">
+                          <div className="text-[8px] text-[#888] font-medium">{item.time}</div>
+                          <div className="w-1.5 h-1.5 rounded-full bg-success" />
+                        </div>
+                        <div className="text-[10px] font-semibold text-[#1a1a1a] mt-0.5">{item.name}</div>
+                        <div className="text-[8px] text-[#999] mt-0.5">{item.addr}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <div className="flex items-center justify-around py-2">
+                      {['Home', 'Map', 'Jobs', 'More'].map((label, i) => (
+                        <div key={label} className="flex flex-col items-center gap-0.5">
+                          <div className={`w-5 h-5 rounded ${i === 0 ? 'bg-primary/20' : 'bg-[#e5e5e5]'}`} />
+                          <span className={`text-[7px] font-medium ${i === 0 ? 'text-primary' : 'text-[#aaa]'}`}>{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex justify-center mt-1">
+                      <div className="w-10 h-[3px] bg-[#1a1a1a] rounded-full" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       </div>
     </section>
   );
 }
 
 /* ─── TRUST SECTION ─── */
-function TrustLogo({ children }: { children: React.ReactNode }) {
+function TrustLogo({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="flex items-center gap-2.5 select-none h-10">
+    <div className={`flex items-center gap-2 select-none h-10 ${className}`}>
       {children}
     </div>
   );
@@ -258,11 +330,13 @@ function TrustSection() {
         >
           Trusted by customers nationwide
         </motion.p>
+
+        {/* Desktop — single row */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex items-center justify-between"
+          className="hidden md:flex items-center justify-between"
         >
           <TrustLogo>
             <svg width="28" height="28" viewBox="0 0 18 18" fill="none" className="shrink-0">
@@ -320,7 +394,54 @@ function TrustSection() {
               PRO<span className="font-light">SHINE</span>
             </span>
           </TrustLogo>
+        </motion.div>
 
+        {/* Mobile — 2 rows, smaller */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="md:hidden grid grid-cols-3 gap-x-4 gap-y-6 justify-items-center"
+        >
+          <TrustLogo>
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" className="shrink-0">
+              <rect x="1" y="1" width="16" height="16" rx="3" stroke="#c0392b" strokeWidth="1.5" />
+              <circle cx="9" cy="9" r="3" fill="#c0392b" />
+            </svg>
+            <div className="flex flex-col leading-none">
+              <span className="text-[14px] font-bold text-black tracking-tight">Summit</span>
+              <span className="text-[8px] font-medium text-black tracking-[0.04em]">ROOFING CO.</span>
+            </div>
+          </TrustLogo>
+
+          <TrustLogo>
+            <span className="text-[16px] font-light tracking-[0.12em] text-black border-2 border-black rounded-md px-1.5 py-0.5">
+              NTG
+            </span>
+          </TrustLogo>
+
+          <TrustLogo>
+            <span className="text-[16px] text-black">
+              <span className="font-extrabold">APEX</span>
+              <span className="font-normal">SUPPLY</span>
+            </span>
+          </TrustLogo>
+
+          <TrustLogo>
+            <img src="/vision-lavage.png" alt="Vision Lavage" className="h-5 w-auto" />
+          </TrustLogo>
+
+          <TrustLogo>
+            <span className="text-[16px] font-black tracking-tight text-black italic">
+              Bright<span className="text-[#2563eb]">Wash</span>
+            </span>
+          </TrustLogo>
+
+          <TrustLogo>
+            <span className="text-[16px] font-bold tracking-[0.15em] text-black uppercase">
+              PRO<span className="font-light">SHINE</span>
+            </span>
+          </TrustLogo>
         </motion.div>
       </div>
     </section>
@@ -406,9 +527,26 @@ function IndustriesGrid() {
               </div>
             </motion.div>
           ))}
+
+          {/* Mobile only — 6th box */}
+          <Link to="/industries" className="md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: 0.3 }}
+              className="relative rounded-xl overflow-hidden cursor-pointer bg-white flex items-center justify-center aspect-[3/4]"
+            >
+              <div className="text-center px-4">
+                <span className="text-xl font-extrabold text-[#111] leading-tight block">See every industry</span>
+                <ArrowRight size={16} className="text-[#111] mx-auto mt-2" />
+              </div>
+            </motion.div>
+          </Link>
         </div>
 
-        <div className="mt-10 text-center">
+        {/* Desktop only — link below */}
+        <div className="mt-10 text-center hidden md:block">
           <Link
             to="/industries"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-white/60 hover:text-white transition-colors"
@@ -556,10 +694,10 @@ function FeatureBlocks() {
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.1] text-white">
               Every D2D team's favorite feature
             </h2>
-            <ul className="mt-6 space-y-3 max-w-xl mx-auto lg:mx-0">
+            <ul className="mt-6 space-y-3 max-w-xl lg:mx-0 text-left">
               {['See every pin on the map', 'Track your sales reps location in real time', 'Assign territories for your knockers'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base font-bold text-white">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ border: '2px solid #ffffff' }}>
+                <li key={item} className="flex items-start gap-3 text-base font-bold text-white">
+                  <div className="w-6 h-6 min-w-[24px] rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ border: '2px solid #ffffff' }}>
                     <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                       <path d="M3 8.5l3.5 3.5L13 5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -592,16 +730,16 @@ function FeatureBlocks() {
           {/* Subtle edge highlight */}
           <div className="absolute inset-0 rounded-[28px] pointer-events-none" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), inset 1px 0 0 rgba(255,255,255,0.03)' }} />
 
-          <div className="relative flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div className="relative flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
           {/* Text */}
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.1] text-white">
               Run your entire business by voice
             </h2>
-            <ul className="mt-6 space-y-3 max-w-xl mx-auto lg:mx-0">
+            <ul className="mt-6 space-y-3 max-w-xl lg:mx-0 text-left">
               {['Create jobs by voice', 'Send quotes instantly', 'Automated follow-ups', 'Zero manual data entry'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base font-bold text-white">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ border: '2px solid #ffffff' }}>
+                <li key={item} className="flex items-start gap-3 text-base font-bold text-white">
+                  <div className="w-6 h-6 min-w-[24px] rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ border: '2px solid #ffffff' }}>
                     <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                       <path d="M3 8.5l3.5 3.5L13 5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -730,16 +868,16 @@ function FeatureBlocks() {
           {/* Subtle edge highlight */}
           <div className="absolute inset-0 rounded-[28px] pointer-events-none" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), inset 1px 0 0 rgba(255,255,255,0.03)' }} />
 
-          <div className="relative flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16">
+          <div className="relative flex flex-col-reverse lg:flex-row-reverse items-center gap-10 lg:gap-16">
           {/* Text */}
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.1] text-white">
               Still managing your sales in spreadsheets?
             </h2>
-            <ul className="mt-6 space-y-3 max-w-xl mx-auto lg:mx-0">
+            <ul className="mt-6 space-y-3 max-w-xl lg:mx-0 text-left">
               {['Real-time KPI tracking', 'Visual sales pipeline', 'Automated follow-ups'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base font-bold text-white">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ border: '2px solid #ffffff' }}>
+                <li key={item} className="flex items-start gap-3 text-base font-bold text-white">
+                  <div className="w-6 h-6 min-w-[24px] rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ border: '2px solid #ffffff' }}>
                     <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                       <path d="M3 8.5l3.5 3.5L13 5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

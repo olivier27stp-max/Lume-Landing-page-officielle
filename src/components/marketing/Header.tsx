@@ -127,7 +127,7 @@ export default function Header() {
             Login
           </Link>
           <Link
-            to="/contact"
+            to="/start-trial"
             className="inline-flex items-center gap-2 bg-text-primary text-surface px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-85 transition-opacity group"
           >
             Book a demo
@@ -214,7 +214,7 @@ export default function Header() {
                   Login
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/start-trial"
                   className="block w-full text-center bg-text-primary text-surface px-5 py-3 rounded-lg text-sm font-medium"
                 >
                   Book a demo
